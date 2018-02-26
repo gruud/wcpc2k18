@@ -1,0 +1,4 @@
+services:
+#    wcpc2_k18.example:
+#        class: WCPC2K18Bundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

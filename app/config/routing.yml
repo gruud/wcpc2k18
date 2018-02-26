@@ -1,0 +1,7 @@
+wcpc2_k18:
+    resource: "@WCPC2K18Bundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

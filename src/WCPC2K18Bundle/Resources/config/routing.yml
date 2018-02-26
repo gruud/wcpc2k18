@@ -1,0 +1,3 @@
+wcpc2_k18_homepage:
+    path:     /
+    defaults: { _controller: WCPC2K18Bundle:Default:index }

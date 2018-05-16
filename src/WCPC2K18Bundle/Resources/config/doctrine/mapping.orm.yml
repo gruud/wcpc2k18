@@ -1,0 +1,152 @@
+WCPC2K18\Entity\Competition:
+    type: entity
+    table: competition
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        nom:
+            type: string
+            length: 255
+        date:
+            type: datetime
+        lieu:
+            type: string
+            length: 512
+    OneToMany:
+        Rencontres:
+            targetEntity: Rencontre
+            mappedBy: id
+            
+            
+WCPC2K18\Entity\Equipe:
+    type: entity
+    table: equipe
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        nom:
+            type: string
+            length: 255
+        pays:
+            type: string
+            length: 255
+        entraineur:
+            type: string
+            length: 255
+    oneToMany:
+        Rencontres:
+            targetEntity: Rencontre
+            mappedBy: id
+     
+WCPC2K18\Entity\Prediction:
+    type: entity
+    table: equipe
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    0neToMany:
+        Rencontres:
+            targetEntity: Rencontre
+            mappedBy: id
+    manytoOne:
+        user_id:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    oneToOne:
+       score_id:
+            targetEntity: Score
+            joinColumn:
+                name: score_id
+                referencedColumnName: id 
+        
+            
+WCPC2K18\Entity\Rencontre:
+    type: entity
+    table: rencontre
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        date:
+            type: datetime
+        lieu:
+            type: string
+            length: 255
+    ManytoOne:
+        competition_id:
+            targetEntity: Competition
+            joinColumn:
+                name: competiton_id
+                referencedColumnName: id 
+        equipe_id:
+            targetEntity: Equipe
+            joinColumn:
+                name: equipe_id
+                referencedColumnName: id
+        prediction_id:
+            targetEntity: Competition
+            joinColumn:
+                name: prediction_id
+                referencedColumnName: id  
+    OnetoOne:
+       score_id:
+            targetEntity: Score
+            joinColumn:
+                name: score_id
+                referencedColumnName: id 
+            
+WCPC2K18\Entity\Score:
+    type: entity
+    table: score
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        nbbuttr:
+            type: integer
+        nbbutprol:
+            type: integer
+        nbtab:
+            type: integer
+        prolongation:
+            type: boolean
+        tiraubut:
+            type: boolean
+    OnetoOne:
+       rencontre_id:
+            targetEntity: Rencontre
+            mapped: id
+       score_id:
+            targetEntity: Prediction
+            mapped: id
+            
+WCPC2K18\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        nom:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+        service:
+            type: string
+            length: 255   
+    OneToMany:
+        Predictions:
+            targetEntity: Prediction
+            mappedBy: id

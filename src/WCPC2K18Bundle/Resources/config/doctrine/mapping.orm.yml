@@ -1,4 +1,4 @@
-WCPC2K18\Entity\Competition:
+WCPC2K18Bundle\Entity\Competition:
     type: entity
     table: competition
     id:
@@ -20,7 +20,7 @@ WCPC2K18\Entity\Competition:
             mappedBy: id
             
             
-WCPC2K18\Entity\Equipe:
+WCPC2K18Bundle\Entity\Equipe:
     type: entity
     table: equipe
     id:
@@ -42,9 +42,9 @@ WCPC2K18\Entity\Equipe:
             targetEntity: Rencontre
             mappedBy: id
      
-WCPC2K18\Entity\Prediction:
+WCPC2K18Bundle\Entity\Prediction:
     type: entity
-    table: equipe
+    table: prediction
     id:
         id:
             type: integer
@@ -67,7 +67,7 @@ WCPC2K18\Entity\Prediction:
                 referencedColumnName: id 
         
             
-WCPC2K18\Entity\Rencontre:
+WCPC2K18Bundle\Entity\Rencontre:
     type: entity
     table: rencontre
     id:
@@ -103,7 +103,7 @@ WCPC2K18\Entity\Rencontre:
                 name: score_id
                 referencedColumnName: id 
             
-WCPC2K18\Entity\Score:
+WCPC2K18Bundle\Entity\Score:
     type: entity
     table: score
     id:
@@ -111,15 +111,21 @@ WCPC2K18\Entity\Score:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        nbbuttr:
+        nbButTrA:
             type: integer
-        nbbutprol:
+        nbButProlA:
             type: integer
-        nbtab:
+        nbTabA:
+            type: integer
+        nbButTrB:
+            type: integer
+        nbButProlB:
+            type: integer
+        nbTabB:
             type: integer
         prolongation:
             type: boolean
-        tiraubut:
+        tirAuBut:
             type: boolean
     OnetoOne:
        rencontre_id:
@@ -129,7 +135,7 @@ WCPC2K18\Entity\Score:
             targetEntity: Prediction
             mapped: id
             
-WCPC2K18\Entity\User:
+WCPC2K18Bundle\Entity\User:
     type: entity
     table: user
     id:

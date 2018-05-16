@@ -6,6 +6,8 @@
  * and open the template in the editor.
  */
 
+namespace WCPC2K18Bundle\Entity;
+
 /**
  * Description of Competiton
  *
@@ -13,8 +15,10 @@
  */
 class Competition {
     //put your code here
+     private $id;
     private $nom;
     private $date;
     private $lieu;
+
             
 }

@@ -16,9 +16,68 @@ class Rencontre {
     private $date;
     private $lieu;
     private $competition;
-    private $equipeA;
-    private $equipeB;
+    private $equipeDom;
+    private $equipeExt;
     private $predictions;
+    private $score;
     
+    
+    function getId() {
+        return $this->id;
+    }
+
+    function getDate() {
+        return $this->date;
+    }
+
+    function getLieu() {
+        return $this->lieu;
+    }
+
+    function getCompetition() {
+        return $this->competition;
+    }
+
+    function getEquipeDom() {
+        return $this->equipeDom;
+    }
+
+    function getEquipeExt() {
+        return $this->equipeExt;
+    }
+
+    function getPredictions() {
+        return $this->predictions;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setDate($date) {
+        $this->date = $date;
+    }
+
+    function setLieu($lieu) {
+        $this->lieu = $lieu;
+    }
+
+    function setCompetition($competition) {
+        $this->competition = $competition;
+    }
+
+    function setEquipeDom($equipeDom) {
+        $this->equipeDom = $equipeDom;
+    }
+
+    function setEquipeExt($equipeExt) {
+        $this->equipeExt = $equipeExt;
+    }
+
+    function setPredictions($predictions) {
+        $this->predictions = $predictions;
+    }
+
+        
     //put your code here
 }

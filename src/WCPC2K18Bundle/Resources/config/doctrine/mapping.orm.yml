@@ -14,8 +14,8 @@ WCPC2K18Bundle\Entity\Competition:
         lieu:
             type: string
             length: 512
-    OneToMany:
-        Rencontres:
+    oneToMany:
+        rencontres:
             targetEntity: Rencontre
             mappedBy: id
             
@@ -38,7 +38,7 @@ WCPC2K18Bundle\Entity\Equipe:
             type: string
             length: 255
     oneToMany:
-        Rencontres:
+        rencontres:
             targetEntity: Rencontre
             mappedBy: id
      
@@ -49,18 +49,19 @@ WCPC2K18Bundle\Entity\Prediction:
         id:
             type: integer
             generator: { strategy: AUTO }
-    0neToMany:
-        Rencontres:
-            targetEntity: Rencontre
-            mappedBy: id
     manytoOne:
-        user_id:
+        rencontre:
+            targetEntity: Rencontre
+            joinColumn:
+                name: rencontre_id
+                referencedColumnName: id   
+        user:
             targetEntity: User
             joinColumn:
                 name: user_id
                 referencedColumnName: id
     oneToOne:
-       score_id:
+       score:
             targetEntity: Score
             joinColumn:
                 name: score_id
@@ -80,23 +81,27 @@ WCPC2K18Bundle\Entity\Rencontre:
         lieu:
             type: string
             length: 255
-    ManytoOne:
-        competition_id:
+    manytoOne:
+        competition:
             targetEntity: Competition
             joinColumn:
-                name: competiton_id
+                name: competition_id
                 referencedColumnName: id 
-        equipe_id:
+        equipeA:
             targetEntity: Equipe
             joinColumn:
-                name: equipe_id
+                name: equipeA_id
                 referencedColumnName: id
-        prediction_id:
-            targetEntity: Competition
+        equipeB:
+            targetEntity: Equipe
             joinColumn:
-                name: prediction_id
-                referencedColumnName: id  
-    OnetoOne:
+                name: equipeB_id
+                referencedColumnName: id   
+    oneToMany:
+        predictions:
+           targetEntity: Prediction
+           mappedBy : id
+    onetoOne:
        score_id:
             targetEntity: Score
             joinColumn:
@@ -127,13 +132,13 @@ WCPC2K18Bundle\Entity\Score:
             type: boolean
         tirAuBut:
             type: boolean
-    OnetoOne:
-       rencontre_id:
+    onetoOne:
+       rencontre:
             targetEntity: Rencontre
-            mapped: id
-       score_id:
+            mappedBy: id
+       score:
             targetEntity: Prediction
-            mapped: id
+            mappedBy: id
             
 WCPC2K18Bundle\Entity\User:
     type: entity
@@ -152,7 +157,7 @@ WCPC2K18Bundle\Entity\User:
         service:
             type: string
             length: 255   
-    OneToMany:
-        Predictions:
+    oneToMany:
+        predictions:
             targetEntity: Prediction
             mappedBy: id

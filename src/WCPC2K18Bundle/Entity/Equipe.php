@@ -16,5 +16,5 @@ class Equipe {
     private $nom;
     private $pays;
     private $entraineur;
-    private $Rencontres;
+    private $rencontres;
 }

@@ -19,6 +19,7 @@ class Competition {
     private $nom;
     private $date;
     private $lieu;
+    private $rencontres;
 
             
 }

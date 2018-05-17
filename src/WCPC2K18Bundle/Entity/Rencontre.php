@@ -12,8 +12,13 @@ namespace WCPC2K18Bundle\Entity;
  * @author jean-yves
  */
 class Rencontre {
-     private $id;
+    private $id;
     private $date;
     private $lieu;
+    private $competition;
+    private $equipeA;
+    private $equipeB;
+    private $predictions;
+    
     //put your code here
 }

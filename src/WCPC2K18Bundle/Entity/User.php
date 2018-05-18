@@ -16,4 +16,5 @@ class User {
    private $nom;
    private $prenom;
    private $service;
+   private $predictions;
 }

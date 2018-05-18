@@ -15,7 +15,9 @@ class Prediction {
     //put your code here
     private $id;
     private $score;
-    private $score_id;
+    private $rencontre;
+    private $user;
+    
 
 
 }

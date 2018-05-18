@@ -14,10 +14,10 @@ WCPC2K18Bundle\Entity\Competition:
         lieu:
             type: string
             length: 512
-    OneToMany:
-        Rencontres:
+    oneToMany:
+        rencontres:
             targetEntity: Rencontre
-            mappedBy: id
+            mappedBy: competition
             
             
 WCPC2K18Bundle\Entity\Equipe:
@@ -38,9 +38,13 @@ WCPC2K18Bundle\Entity\Equipe:
             type: string
             length: 255
     oneToMany:
-        Rencontres:
+        rencontresDom:
             targetEntity: Rencontre
-            mappedBy: id
+            mappedBy: equipeDom
+        rencontresExt:
+            targetEntity: Rencontre
+            mappedBy: equipeExt
+        
      
 WCPC2K18Bundle\Entity\Prediction:
     type: entity
@@ -49,18 +53,21 @@ WCPC2K18Bundle\Entity\Prediction:
         id:
             type: integer
             generator: { strategy: AUTO }
-    0neToMany:
-        Rencontres:
+    manyToOne:
+        rencontre:
             targetEntity: Rencontre
-            mappedBy: id
-    manytoOne:
-        user_id:
+            inversedBy: predictions
+            joinColumn:
+                name: rencontre_id
+                referencedColumnName: id   
+        user:
             targetEntity: User
+            inversedBy: predictions
             joinColumn:
                 name: user_id
                 referencedColumnName: id
     oneToOne:
-       score_id:
+       score:
             targetEntity: Score
             joinColumn:
                 name: score_id
@@ -80,25 +87,33 @@ WCPC2K18Bundle\Entity\Rencontre:
         lieu:
             type: string
             length: 255
-    ManytoOne:
-        competition_id:
+    manyToOne:
+        competition:
             targetEntity: Competition
+            inversedBy: rencontres
             joinColumn:
-                name: competiton_id
+                name: competition_id
                 referencedColumnName: id 
-        equipe_id:
+        equipeDom:
             targetEntity: Equipe
+            inversedBy: rencontresDom
             joinColumn:
-                name: equipe_id
+                name: equipeDom_id
                 referencedColumnName: id
-        prediction_id:
-            targetEntity: Competition
+        equipeExt:
+            targetEntity: Equipe
+            inversedBy: rencontresExt
             joinColumn:
-                name: prediction_id
-                referencedColumnName: id  
-    OnetoOne:
-       score_id:
+                name: equipeExt_id
+                referencedColumnName: id   
+    oneToMany:
+        predictions:
+           targetEntity: Prediction
+           mappedBy : rencontre
+    oneToOne:
+       score:
             targetEntity: Score
+            inversedBy: rencontre
             joinColumn:
                 name: score_id
                 referencedColumnName: id 
@@ -111,29 +126,26 @@ WCPC2K18Bundle\Entity\Score:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        nbButTrA:
+        nbButTrDom:
             type: integer
-        nbButProlA:
+        nbButProlDom:
             type: integer
-        nbTabA:
+        nbTabDom:
             type: integer
-        nbButTrB:
+        nbButTrExt:
             type: integer
-        nbButProlB:
+        nbButProlExt:
             type: integer
-        nbTabB:
+        nbTabExt:
             type: integer
         prolongation:
             type: boolean
         tirAuBut:
             type: boolean
-    OnetoOne:
-       rencontre_id:
+    oneToOne:
+       rencontre:
             targetEntity: Rencontre
-            mapped: id
-       score_id:
-            targetEntity: Prediction
-            mapped: id
+            mappedBy: score
             
 WCPC2K18Bundle\Entity\User:
     type: entity
@@ -152,7 +164,7 @@ WCPC2K18Bundle\Entity\User:
         service:
             type: string
             length: 255   
-    OneToMany:
-        Predictions:
+    oneToMany:
+        predictions:
             targetEntity: Prediction
-            mappedBy: id
+            mappedBy: user

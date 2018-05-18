@@ -12,15 +12,16 @@ namespace WCPC2K18Bundle\Entity;
  * @author jean-yves
  */
 class Score {
-     private $id;
-    private $nbButTrA;
-    private $nbButProlA;
-    private $nbTabA;
-    private $nbButTrB;
-    private $nbButProlB;
-    private $nbTabB;
+    private $id;
+    private $nbButTrDom;
+    private $nbButProlDom;
+    private $nbTabDom;
+    private $nbButTrExt;
+    private $nbButProlExt;
+    private $nbTabExt;
     private $prolongation;
     private $tirAuBut;
+    private $rencontre;
     
     
 }

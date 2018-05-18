@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('WCPC2K18Bundle:Default:index.html.twig');
+        return $this->render('WCPC2K18Bundle:Default:accueil.html.twig');
     }
 }

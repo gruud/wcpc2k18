@@ -1,0 +1,32 @@
+{# empty Twig template #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Les compétitions </title>
+    </head>
+        
+    <body>
+	 
+	
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Date</th>
+                    <th>Lieu</th>
+                </tr>
+            </thead> 
+            <tbody>
+                {% for competition in competitions %}
+                    <tr>
+                        <td> {{ competition.Nom }}  </td>
+                        <td> {{ competition.Date|date("m/d/Y")  }}  </td>
+                        <td> {{ competition.Lieu  }}  </td>
+                    </tr>    
+                {% endfor %}
+            </tbody> 
+        </table>
+            
+    </body>
+</html>

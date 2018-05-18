@@ -87,6 +87,9 @@ WCPC2K18Bundle\Entity\Rencontre:
         lieu:
             type: string
             length: 255
+        journee:
+            type: string
+            length: 255
     manyToOne:
         competition:
             targetEntity: Competition

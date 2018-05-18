@@ -20,6 +20,7 @@ class Rencontre {
     private $equipeExt;
     private $predictions;
     private $score;
+    private $journee;
     
     
     function getId() {

@@ -37,6 +37,9 @@ WCPC2K18Bundle\Entity\Equipe:
         entraineur:
             type: string
             length: 255
+        groupe:
+            type: string
+            lenght: 255
     oneToMany:
         rencontresDom:
             targetEntity: Rencontre

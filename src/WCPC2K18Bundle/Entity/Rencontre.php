@@ -79,6 +79,23 @@ class Rencontre {
         $this->predictions = $predictions;
     }
 
-        
+    
+    function getScore() {
+        return $this->score;
+    }
+
+    function getJournee() {
+        return $this->journee;
+    }
+
+    function setScore($score) {
+        $this->score = $score;
+    }
+
+    function setJournee($journee) {
+        $this->journee = $journee;
+    }
+
+            
     //put your code here
 }

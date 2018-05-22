@@ -5,3 +5,11 @@ wcpc2_k18_homepage:
 competition:
     path: /accueil
     defaults: { _controller: WCPC2K18Bundle:Competition:affichage }
+    
+rencontre:
+    path: /rencontre
+    defaults: { _controller: WCPC2K18Bundle:Rencontre:add }
+    
+calendrier:
+    path: /calendrier
+    defaults: { _controller: WCPC2K18Bundle:Rencontre:affichage }

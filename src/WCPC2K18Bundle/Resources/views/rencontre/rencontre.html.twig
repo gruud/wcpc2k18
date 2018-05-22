@@ -1,0 +1,63 @@
+{# empty Twig template #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Prototype de suivi de rencontres </title>
+    </head>
+        
+    <body>
+	
+
+	
+
+        <table>
+            <thead>
+                <tr>
+                    <th>date</th>
+                    <th>Equipe A</th>
+                    <th>Equipe B</th>
+                    <th>Journée</th>
+                    <th>Groupe</th>
+                </tr>
+            </thead> 
+            <tbody>
+                {% for rencontre in rencontres %}
+                    <tr>
+                        <td> {{ rencontre.date|date("Y-m-d H:i:s") }}  </td>
+                        <td> {{ rencontre.equipeDom.nom }}  </td>
+                        <td> {{ rencontre.equipeExt.nom }}  </td>
+                        <td> {{ rencontre.journee }}  </td>
+                        <td> {{ rencontre.equipeDom.groupe }}</td>
+                        
+                    </tr>    
+                {% endfor %}
+            </tbody> 
+        </table>
+            
+    {% for rencontre in rencontres %} 
+        <h3>Groupe {{ rencontre.equipeDom.groupe }} </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Equipe A</th>
+                    <th>Equipe B</th>
+                    <th>Journée</th>
+                    
+                </tr>
+            </thead> 
+            <tbody>
+                
+                    <tr>
+                        <td> {{ rencontre.equipeDom.nom }}  </td>
+                        <td> {{ rencontre.equipeExt.nom }}  </td>
+                        <td> {{ rencontre.journee }}  </td>
+                        
+                    </tr>    
+               
+            </tbody> 
+        </table>    
+     {% endfor %}        
+            
+               </body>
+</html>{# empty Twig template #}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Prototype de suivi de des predictions </title>
+    </head>
+        
+    <body>
+	
+
+	
+
+        <table>
+            <thead>
+                <tr>
+                    <th>date</th>
+                    <th>Equipe A</th>
+                    <th>Score A</th>
+                    <th> | </th>
+                    <th>Score B</th>
+                    <th>Equipe B</th>
+                    <th>Groupe</th>
+                </tr>
+            </thead> 
+            <tbody>
+                {% for prediction in listePredictions %}
+                    <tr>
+                        <td> {{ prediction.rencontre.date|date("Y-m-d H:i:s") }}  </td>
+                        <td> {{ prediction.rencontre.equipeDom.nom }}  </td>
+                        <td> {{ prediction.score.nbButTrDom }}  </td>
+                        <td> | </td>
+                        <td> {{ prediction.score.nbButTrExt }}  </td>
+                        <td> {{ prediction.rencontre.equipeExt.nom }}  </td>
+
+
+                        
+                    </tr>    
+                {% endfor %}
+            </tbody> 
+        </table>
+            
+    
+            
+               </body>
+</html>{# empty Twig template #}
+

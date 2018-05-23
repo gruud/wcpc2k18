@@ -13,3 +13,7 @@ rencontre:
 calendrier:
     path: /calendrier
     defaults: { _controller: WCPC2K18Bundle:Rencontre:affichage }
+    
+test:
+    path: /test/{id}
+    defaults: { _controller: WCPC2K18Bundle:Prediction:userprediction }

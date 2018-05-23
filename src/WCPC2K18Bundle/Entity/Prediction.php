@@ -18,6 +18,40 @@ class Prediction {
     private $rencontre;
     private $user;
     
+    function getId() {
+        return $this->id;
+    }
+
+    function getScore() {
+        return $this->score;
+    }
+
+    function getRencontre() {
+        return $this->rencontre;
+    }
+
+    function getUser() {
+        return $this->user;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setScore($score) {
+        $this->score = $score;
+    }
+
+    function setRencontre($rencontre) {
+        $this->rencontre = $rencontre;
+    }
+
+    function setUser($user) {
+        $this->user = $user;
+    }
+
+
+    
 
 
 }

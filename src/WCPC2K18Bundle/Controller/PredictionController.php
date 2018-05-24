@@ -8,58 +8,59 @@
 
 namespace WCPC2K18Bundle\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use WCPC2K18Bundle\Entity\Rencontre;
 use WCPC2K18Bundle\Entity\Equipe;
 use Symfony\Component\HttpFoundation\Request;
+
 /**
  * Description of PredictionController
  *
  * @author jean-yves
  */
 class PredictionController extends Controller {
-   
-    function addAction() {
-        
-        /*creation d'une valeur test*/
-          $prediction = new \WCPC2K18Bundle\Entity\Prediction;
-          $score = new \WCPC2K18Bundle\Entity\Score;
+    /* ajout d'un prediction le parametre est le numéro de rencontre */
 
-          $rencontreCour =  $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Rencontre');
-          $rencontre= $rencontreCour->find(28);
-          
-          
-         $userCour=$this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:User');
-         $user= $userCour->find(1);
-          /*creation du score*/
-          $score->setNbButTrDom(0);
-          $score->setNbButTrExt(2);    
-          
-          $prediction->setScore($score);
-          $prediction->setRencontre($rencontre);
-          $prediction->setUser($user);
-          
-        
-        
-        
-            $predictionCour = $this->getDoctrine()->getManager();
-            $predictionCour->persist($score);
-            $predictionCour->persist($prediction);
+    function addAction(Request $request, $referenceRencontre) {
 
-            $predictionCour->flush();
-            return $this->redirectToRoute("rencontre");
+        /* user 0 pour le test, cette bvaleur sera initialiser avec le user quand le bundle sera installé */
+
+        $userRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:User');
+        $user = $userRepository->find(0);
+
+
+        /* creation d'une valeur test */
+
+        /* creation du formulaire prediction */
+        $prediction = new \WCPC2K18Bundle\Entity\Prediction;
+        $form = $this->get('form.factory')->create(new \WCPC2K18Bundle\Form\PredictionType(), $prediction);
         
         
+        /* recuperation des infos de la rencontre */
+        $rencontreRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Rencontre');
+        $rencontre = $rencontreRepository->find($referenceRencontre);
+        
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+        
+        $predictionCour = $this->getDoctrine()->getManager();
+        $predictionCour->persist($prediction->getScore());
+        $predictionCour->persist($prediction);
+        
+        $predictionCour->flush();
+        
+        }
+        
+        /* On affiche le formulaire */
+        return $this->render("WCPC2K18Bundle:prediction:addPrediction.html.twig", array('form' => $form->createView(),'rencontre'=> $rencontre));
     }
-    
-    function userpredictionAction($id){
 
-        $predictionRepository=$this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Prediction');
-        $listePredictions= $predictionRepository->findby(["user" => $id]);
+    function userpredictionAction($id) {
+
+        $predictionRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Prediction');
+        $listePredictions = $predictionRepository->findby(["user" => $id]);
         return $this->render("WCPC2K18Bundle:prediction:userPrediction.html.twig", array('listePredictions' => $listePredictions));
     }
-   
-    
-    
+
 }

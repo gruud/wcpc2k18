@@ -56,6 +56,10 @@ WCPC2K18Bundle\Entity\Prediction:
         id:
             type: integer
             generator: { strategy: AUTO }
+    fields:
+        double:
+            type: boolean
+            defaults: false    
     manyToOne:
         rencontre:
             targetEntity: Rencontre

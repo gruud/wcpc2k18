@@ -17,6 +17,7 @@ class Prediction {
     private $score;
     private $rencontre;
     private $user;
+    private $double;
     
     function getId() {
         return $this->id;
@@ -48,6 +49,14 @@ class Prediction {
 
     function setUser($user) {
         $this->user = $user;
+    }
+
+    function getDouble() {
+        return $this->double;
+    }
+
+    function setDouble($double) {
+        $this->double = $double;
     }
 
 

@@ -3,7 +3,7 @@ wcpc2_k18_homepage:
     defaults: { _controller: WCPC2K18Bundle:Default:index }
     
 competition:
-    path: /accueil
+    path: /competition
     defaults: { _controller: WCPC2K18Bundle:Competition:affichage }
     
 rencontre:
@@ -14,6 +14,10 @@ calendrier:
     path: /calendrier
     defaults: { _controller: WCPC2K18Bundle:Rencontre:affichage }
     
-test:
+pronostic:
+    path: /pronostic/{referenceRencontre}
+    defaults: { _controller: WCPC2K18Bundle:Prediction:add }
+    
+listeprediction:
     path: /test/{id}
     defaults: { _controller: WCPC2K18Bundle:Prediction:userprediction }

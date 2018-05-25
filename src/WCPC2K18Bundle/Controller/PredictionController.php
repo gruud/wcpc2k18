@@ -26,19 +26,23 @@ class PredictionController extends Controller {
         /* user 0 pour le test, cette bvaleur sera initialiser avec le user quand le bundle sera installé */
 
         $userRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:User');
-        $user = $userRepository->find(0);
-
-
+        $user = $userRepository->find(2);
+        /* recuperation des infos de la rencontre */
+        $rencontreRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Rencontre');
+        $rencontre = $rencontreRepository->find($referenceRencontre);
+         
         /* creation d'une valeur test */
 
         /* creation du formulaire prediction */
         $prediction = new \WCPC2K18Bundle\Entity\Prediction;
+        $prediction->setRencontre($rencontre);
+        $prediction->setUser($user);
+        
+        
         $form = $this->get('form.factory')->create(new \WCPC2K18Bundle\Form\PredictionType(), $prediction);
         
-        
-        /* recuperation des infos de la rencontre */
-        $rencontreRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Rencontre');
-        $rencontre = $rencontreRepository->find($referenceRencontre);
+        \Doctrine\Common\Util\Debug::dump($prediction);
+
         
         $form->handleRequest($request);
 
@@ -53,7 +57,7 @@ class PredictionController extends Controller {
         }
         
         /* On affiche le formulaire */
-        return $this->render("WCPC2K18Bundle:prediction:addPrediction.html.twig", array('form' => $form->createView(),'rencontre'=> $rencontre));
+        return $this->render("WCPC2K18Bundle:prediction:addPrediction.html.twig", array('form' => $form->createView(),'rencontre'=> $rencontre,'user'=>$user));
     }
 
     function userpredictionAction($id) {

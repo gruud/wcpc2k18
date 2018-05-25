@@ -97,6 +97,23 @@ WCPC2K18Bundle\Entity\Rencontre:
         journee:
             type: string
             length: 255
+        nbButTrDom:
+            type: integer
+        nbButProlDom:
+             type: integer
+        nbTabDom:
+             type: integer
+        nbButTrExt:
+             type: integer
+        nbButProlExt:
+             type: integer
+        nbTabExt:
+             type: integer
+        prolongation:
+            type: boolean
+        tirAuBut:
+            type: boolean
+
     manyToOne:
         competition:
             targetEntity: Competition
@@ -120,13 +137,7 @@ WCPC2K18Bundle\Entity\Rencontre:
         predictions:
            targetEntity: Prediction
            mappedBy : rencontre
-    oneToOne:
-       score:
-            targetEntity: Score
-            inversedBy: rencontre
-            joinColumn:
-                name: score_id
-                referencedColumnName: id 
+
             
 WCPC2K18Bundle\Entity\Score:
     type: entity
@@ -159,10 +170,7 @@ WCPC2K18Bundle\Entity\Score:
         tirAuBut:
             type: boolean
             nullable: true
-    oneToOne:
-       rencontre:
-            targetEntity: Rencontre
-            mappedBy: score
+
             
 WCPC2K18Bundle\Entity\User:
     type: entity

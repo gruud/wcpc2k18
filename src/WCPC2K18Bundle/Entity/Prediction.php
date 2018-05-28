@@ -18,13 +18,8 @@ class Prediction {
     private $user;
     private $double;
     private $nbButTrDom;
-    private $nbButProlDom;
-    private $nbTabDom;
     private $nbButTrExt;
-    private $nbButProlExt;
-    private $nbTabExt;
-    private $prolongation;
-    private $tirAuBut;
+
 
     
     

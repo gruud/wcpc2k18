@@ -162,7 +162,7 @@ WCPC2K18Bundle\Entity\Rencontre:
             
 WCPC2K18Bundle\Entity\User:
     type: entity
-    table: user
+    table: utilisateur
     id:
         id:
             type: integer

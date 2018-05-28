@@ -59,7 +59,23 @@ WCPC2K18Bundle\Entity\Prediction:
     fields:
         double:
             type: boolean
-            defaults: false    
+            defaults: false
+        nbButTrDom:
+            type: integer
+        nbButProlDom:
+             type: integer
+        nbTabDom:
+             type: integer
+        nbButTrExt:
+             type: integer
+        nbButProlExt:
+             type: integer
+        nbTabExt:
+             type: integer
+        prolongation:
+            type: boolean
+        tirAuBut:
+            type: boolean
     manyToOne:
         rencontre:
             targetEntity: Rencontre
@@ -73,12 +89,7 @@ WCPC2K18Bundle\Entity\Prediction:
             joinColumn:
                 name: user_id
                 referencedColumnName: id
-    oneToOne:
-       score:
-            targetEntity: Score
-            joinColumn:
-                name: score_id
-                referencedColumnName: id 
+
         
             
 WCPC2K18Bundle\Entity\Rencontre:
@@ -99,20 +110,28 @@ WCPC2K18Bundle\Entity\Rencontre:
             length: 255
         nbButTrDom:
             type: integer
+            default: null
         nbButProlDom:
              type: integer
+             default: null
         nbTabDom:
              type: integer
+             default: null
         nbButTrExt:
              type: integer
+             default: null
         nbButProlExt:
              type: integer
+             default: null
         nbTabExt:
              type: integer
+             default: null
         prolongation:
             type: boolean
+            default: false
         tirAuBut:
             type: boolean
+            default: false
 
     manyToOne:
         competition:
@@ -139,37 +158,6 @@ WCPC2K18Bundle\Entity\Rencontre:
            mappedBy : rencontre
 
             
-WCPC2K18Bundle\Entity\Score:
-    type: entity
-    table: score
-    id:
-        id:
-            type: integer
-            generator: { strategy: AUTO }
-    fields:
-        nbButTrDom:
-            type: integer
-        nbButProlDom:
-            type: integer
-            nullable: true
-        nbTabDom:
-            type: integer
-            nullable: true
-        nbButTrExt:
-            type: integer
-            nullable: true
-        nbButProlExt:
-            type: integer
-            nullable: true
-        nbTabExt:
-            type: integer
-            nullable: true
-        prolongation:
-            type: boolean
-            nullable: true
-        tirAuBut:
-            type: boolean
-            nullable: true
 
             
 WCPC2K18Bundle\Entity\User:

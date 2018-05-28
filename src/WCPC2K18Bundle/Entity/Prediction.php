@@ -18,6 +18,16 @@ class Prediction {
     private $rencontre;
     private $user;
     private $double;
+    private $nbButTrDom;
+    private $nbButProlDom;
+    private $nbTabDom;
+    private $nbButTrExt;
+    private $nbButProlExt;
+    private $nbTabExt;
+    private $prolongation;
+    private $tirAuBut;
+
+    
     
     function getId() {
         return $this->id;

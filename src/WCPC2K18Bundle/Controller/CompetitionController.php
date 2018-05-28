@@ -29,4 +29,12 @@ class CompetitionController extends Controller {
 
         return $this->render("WCPC2K18Bundle:competition:competition.html.twig", array('competitions' => $competitions));
     }
+    
+        public function affichagecompetAction($id) {
+            $manager = $this->getDoctrine()->getManager();
+            
+            $competition = $manager->getRepository("WCPC2K18Bundle:Competition")->find($id);
+            
+            return $this->render("WCPC2K18Bundle:default:accueil.html.twig", array('competition' => $competition));
+        }
 }

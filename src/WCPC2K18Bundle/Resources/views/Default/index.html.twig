@@ -6,7 +6,43 @@
         <title> Mon premier twig père </title>
     </head>
     <body>
+        <div class="jumbotron text-center bg-success" style="margin-bottom:0">
+  <h1>         
+             Russie  2018    
+               {#     {{ competition.nom }}/{{ competition.date|date("m")  }} 
+                    {{ competition.lieu  }}  
+                  #}
+                 : Concours de pronostics  </h1>
+   
+</div>
+
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+  <a class="navbar-brand" href="wcpc2_k18_homepage">Wcpc2k18</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="match">Rencontres</a>
+      </li>
+      <li class="nav-item">
+{#        <a class="nav-link" href="{{ path('calendrier', {'id' : 'valeur'} ) }}">Calendrier</a>#}
+        <a class="nav-link" href="{{ path('calendrier') }}">Calendrier</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Classement</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+
+ 
         {% block contenu %} {% endblock %}
+        
+ <div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Footer</p>
+</div>      
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

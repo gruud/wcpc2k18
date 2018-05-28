@@ -10,6 +10,17 @@ rencontre:
     path: /rencontre
     defaults: { _controller: WCPC2K18Bundle:Rencontre:add }
     
+affichagecompet:
+    path: /competition/{id}
+    defaults: { _controller: WCPC2K18Bundle:Competition:affichagecompet }
+    
+match:
+    path: /match
+    defaults: { _controller: WCPC2K18Bundle:Rencontre:match }
+    
 calendrier:
     path: /calendrier
     defaults: { _controller: WCPC2K18Bundle:Rencontre:affichage }
+    
+    
+    

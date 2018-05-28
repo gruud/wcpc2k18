@@ -1,6 +1,11 @@
-{# empty Twig template #}
-<!DOCTYPE html>
-<html>
+
+
+{% extends "WCPC2K18Bundle:Default:index.html.twig" %}
+ {% block contenu %}
+
+
+
+
     <head>
         <meta charset="utf-8">
         <title> Les compétitions </title>
@@ -9,7 +14,7 @@
     <body>
 	 
 	
-        <table>
+        <table class="table table-bordered" >
             <thead>
                 <tr>
                     <th>Nom</th>
@@ -29,4 +34,7 @@
         </table>
             
     </body>
-</html>
+    
+     
+ {% endblock %}
+

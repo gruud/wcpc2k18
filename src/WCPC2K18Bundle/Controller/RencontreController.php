@@ -75,5 +75,13 @@ class RencontreController extends Controller {
         return $this->render("WCPC2K18Bundle:rencontre:rencontre.html.twig", array('rencontres' => $rencontres));
     }
     
+    public function matchAction() {
+
+        $manager = $this->getDoctrine()->getManager();
+
+        $rencontres = $manager->getRepository("WCPC2K18Bundle:Rencontre")->findBy(array(), array('date'=> 'asc'));
+        
+        return $this->render("WCPC2K18Bundle:rencontre:match.html.twig", array('rencontres' => $rencontres));
+    }
     
 }

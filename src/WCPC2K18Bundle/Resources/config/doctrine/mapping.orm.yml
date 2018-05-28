@@ -153,7 +153,7 @@ WCPC2K18Bundle\Entity\Rencontre:
             
 WCPC2K18Bundle\Entity\User:
     type: entity
-    table: user
+    table: utilisateur
     id:
         id:
             type: integer
@@ -162,12 +162,15 @@ WCPC2K18Bundle\Entity\User:
         nom:
             type: string
             length: 255
+            nullable: true
         prenom:
             type: string
             length: 255
+            nullable: true
         service:
             type: string
-            length: 255   
+            length: 255
+            nullable: true
     oneToMany:
         predictions:
             targetEntity: Prediction

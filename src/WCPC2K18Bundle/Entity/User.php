@@ -6,17 +6,22 @@
  * and open the template in the editor.
  */
 namespace WCPC2K18Bundle\Entity;
+
+
+use FOS\UserBundle\Model\User as BaseUser;
+
 /**
  * Description of User
  *
  * @author jean-yves
  */
-class User {
-   private $id;
-   private $nom;
-   private $prenom;
-   private $service;
-   private $predictions;
+class User extends BaseUser {
+    
+   protected $id;
+   protected $nom;
+   protected $prenom;
+   protected $service;
+   protected $predictions;
    
    function getId() {
        return $this->id;

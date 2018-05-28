@@ -19,8 +19,16 @@ class Rencontre {
     private $equipeDom;
     private $equipeExt;
     private $predictions;
-    private $score;
     private $journee;
+    private $nbButTrDom;
+    private $nbButProlDom;
+    private $nbTabDom;
+    private $nbButTrExt;
+    private $nbButProlExt;
+    private $nbTabExt;
+    private $prolongation;
+    private $tirAuBut;
+    private $rencontre;
     
     
     function getId() {
@@ -80,10 +88,6 @@ class Rencontre {
     }
 
     
-    function getScore() {
-        return $this->score;
-    }
-
     function getJournee() {
         return $this->journee;
     }
@@ -96,6 +100,78 @@ class Rencontre {
         $this->journee = $journee;
     }
 
-            
+    function getNbButTrDom() {
+        return $this->nbButTrDom;
+    }
+
+    function getNbButProlDom() {
+        return $this->nbButProlDom;
+    }
+
+    function getNbTabDom() {
+        return $this->nbTabDom;
+    }
+
+    function getNbButTrExt() {
+        return $this->nbButTrExt;
+    }
+
+    function getNbButProlExt() {
+        return $this->nbButProlExt;
+    }
+
+    function getNbTabExt() {
+        return $this->nbTabExt;
+    }
+
+    function getProlongation() {
+        return $this->prolongation;
+    }
+
+    function getTirAuBut() {
+        return $this->tirAuBut;
+    }
+
+    function getRencontre() {
+        return $this->rencontre;
+    }
+
+    function setNbButTrDom($nbButTrDom) {
+        $this->nbButTrDom = $nbButTrDom;
+    }
+
+    function setNbButProlDom($nbButProlDom) {
+        $this->nbButProlDom = $nbButProlDom;
+    }
+
+    function setNbTabDom($nbTabDom) {
+        $this->nbTabDom = $nbTabDom;
+    }
+
+    function setNbButTrExt($nbButTrExt) {
+        $this->nbButTrExt = $nbButTrExt;
+    }
+
+    function setNbButProlExt($nbButProlExt) {
+        $this->nbButProlExt = $nbButProlExt;
+    }
+
+    function setNbTabExt($nbTabExt) {
+        $this->nbTabExt = $nbTabExt;
+    }
+
+    function setProlongation($prolongation) {
+        $this->prolongation = $prolongation;
+    }
+
+    function setTirAuBut($tirAuBut) {
+        $this->tirAuBut = $tirAuBut;
+    }
+
+    function setRencontre($rencontre) {
+        $this->rencontre = $rencontre;
+    }
+
+                
     //put your code here
 }

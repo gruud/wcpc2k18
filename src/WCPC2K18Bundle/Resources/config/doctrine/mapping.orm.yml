@@ -56,6 +56,26 @@ WCPC2K18Bundle\Entity\Prediction:
         id:
             type: integer
             generator: { strategy: AUTO }
+    fields:
+        double:
+            type: boolean
+            defaults: false
+        nbButTrDom:
+            type: integer
+        nbButProlDom:
+             type: integer
+        nbTabDom:
+             type: integer
+        nbButTrExt:
+             type: integer
+        nbButProlExt:
+             type: integer
+        nbTabExt:
+             type: integer
+        prolongation:
+            type: boolean
+        tirAuBut:
+            type: boolean
     manyToOne:
         rencontre:
             targetEntity: Rencontre
@@ -69,12 +89,7 @@ WCPC2K18Bundle\Entity\Prediction:
             joinColumn:
                 name: user_id
                 referencedColumnName: id
-    oneToOne:
-       score:
-            targetEntity: Score
-            joinColumn:
-                name: score_id
-                referencedColumnName: id 
+
         
             
 WCPC2K18Bundle\Entity\Rencontre:
@@ -93,6 +108,31 @@ WCPC2K18Bundle\Entity\Rencontre:
         journee:
             type: string
             length: 255
+        nbButTrDom:
+            type: integer
+            default: null
+        nbButProlDom:
+             type: integer
+             default: null
+        nbTabDom:
+             type: integer
+             default: null
+        nbButTrExt:
+             type: integer
+             default: null
+        nbButProlExt:
+             type: integer
+             default: null
+        nbTabExt:
+             type: integer
+             default: null
+        prolongation:
+            type: boolean
+            default: false
+        tirAuBut:
+            type: boolean
+            default: false
+
     manyToOne:
         competition:
             targetEntity: Competition
@@ -116,42 +156,9 @@ WCPC2K18Bundle\Entity\Rencontre:
         predictions:
            targetEntity: Prediction
            mappedBy : rencontre
-    oneToOne:
-       score:
-            targetEntity: Score
-            inversedBy: rencontre
-            joinColumn:
-                name: score_id
-                referencedColumnName: id 
+
             
-WCPC2K18Bundle\Entity\Score:
-    type: entity
-    table: score
-    id:
-        id:
-            type: integer
-            generator: { strategy: AUTO }
-    fields:
-        nbButTrDom:
-            type: integer
-        nbButProlDom:
-            type: integer
-        nbTabDom:
-            type: integer
-        nbButTrExt:
-            type: integer
-        nbButProlExt:
-            type: integer
-        nbTabExt:
-            type: integer
-        prolongation:
-            type: boolean
-        tirAuBut:
-            type: boolean
-    oneToOne:
-       rencontre:
-            targetEntity: Rencontre
-            mappedBy: score
+
             
 WCPC2K18Bundle\Entity\User:
     type: entity

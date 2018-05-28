@@ -67,6 +67,7 @@ class RencontreController extends Controller {
     
     
     public function affichageAction() {
+        
 
         $manager = $this->getDoctrine()->getManager();
 

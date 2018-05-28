@@ -92,10 +92,6 @@ class Rencontre {
         return $this->journee;
     }
 
-    function setScore($score) {
-        $this->score = $score;
-    }
-
     function setJournee($journee) {
         $this->journee = $journee;
     }

@@ -41,7 +41,7 @@ class PredictionController extends Controller {
         
         $form = $this->get('form.factory')->create(new \WCPC2K18Bundle\Form\PredictionType(), $prediction);
         
-        \Doctrine\Common\Util\Debug::dump($prediction);
+        //\Doctrine\Common\Util\Debug::dump($prediction);
 
         
         $form->handleRequest($request);
@@ -49,7 +49,6 @@ class PredictionController extends Controller {
         if ($form->isValid()) {
         
         $predictionCour = $this->getDoctrine()->getManager();
-        $predictionCour->persist($prediction->getScore());
         $predictionCour->persist($prediction);
         
         $predictionCour->flush();

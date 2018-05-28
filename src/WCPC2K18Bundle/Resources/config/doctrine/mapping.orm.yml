@@ -58,6 +58,7 @@ WCPC2K18Bundle\Entity\Prediction:
             generator: { strategy: AUTO }
     fields:
         double:
+            column: bonus
             type: boolean
             defaults: false
         nbButTrDom:

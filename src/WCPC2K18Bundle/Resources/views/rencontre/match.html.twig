@@ -1,0 +1,29 @@
+{% extends "WCPC2K18Bundle:Default:index.html.twig" %}
+
+ {% block contenu %}
+    
+        <table class="table table-striped">
+            <thead class="bg-success bg-sm">
+                <tr>
+                    <th>Date</th>
+                    <th>Match</th>
+                    
+                    <th>Votre pronostic</th>
+                    
+                </tr>
+            </thead> 
+            <tbody>
+                {% for rencontre in rencontres %}
+                    <tr>
+                        <td> {{ rencontre.date|date("Y-m-d H:i:s") }} <br/> Journée : {{ rencontre.journee }} </td>
+                        <td> {{ rencontre.equipeDom.nom }}  -
+                         {{ rencontre.equipeExt.nom }} <br/> Groupe {{ rencontre.equipeDom.groupe }} </td>
+                        <td> <a class="btn btn-primary" href="#" role="button">Pronostic</a> </td>                                          
+                    </tr>    
+                {% endfor %}
+            </tbody> 
+        </table>
+     
+
+ {% endblock %}
+

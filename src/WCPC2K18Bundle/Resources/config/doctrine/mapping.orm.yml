@@ -171,12 +171,15 @@ WCPC2K18Bundle\Entity\User:
         nom:
             type: string
             length: 255
+            nullable: true
         prenom:
             type: string
             length: 255
+            nullable: true
         service:
             type: string
-            length: 255   
+            length: 255
+            nullable: true
     oneToMany:
         predictions:
             targetEntity: Prediction

@@ -1,7 +1,9 @@
 {# empty Twig template #}
-{{ rencontre.equipeDom.nom}} {{ rencontre.equipeExt.nom}} <br> {{ rencontre.date |date ("m/d/Y" )}} <br>
+{{ rencontre.equipeDom.nom}}<img src="{{ asset( 'bundles/wcpc2k18/images/flags/20/' ~  rencontre.equipeDom.Flag20 ) }}" alt="" /> <img src="{{ asset( 'bundles/wcpc2k18/images/flags/20/' ~  rencontre.equipeExt.Flag20 ) }}" alt="" /> {{ rencontre.equipeExt.nom}} <br> {{ rencontre.date |date ("m/d/Y" )}} <br>
 {{ rencontre.lieu}}
 {{ user.nom }}
+
+
 
 <div class="well">
 

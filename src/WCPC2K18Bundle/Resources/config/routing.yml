@@ -29,3 +29,10 @@ pronostic:
 listeprediction:
     path: /test/{user}/{rencontre}
     defaults: { _controller: WCPC2K18Bundle:Prediction:userpredictionValide }
+    
+    
+wcpc2_k18_equipe:
+    resource: "@WCPC2K18Bundle/Resources/config/routing/equipe.yml"
+    prefix:   /equipe
+
+    

@@ -13,7 +13,20 @@ class RencontreType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')->add('lieu')->add('journee')->add('equipeDom')->add('equipeExt');
+        $builder->add('date')
+                ->add('lieu')
+                ->add('journee')
+                ->add('nbButTrDom')
+                ->add('nbButProlDom')
+                ->add('nbTabDom')
+                ->add('nbButTrExt')
+                ->add('nbButProlExt')
+                ->add('nbTabExt')
+                ->add('prolongation')
+                ->add('tirAuBut')
+                ->add('competition')
+                ->add('equipeDom')
+                ->add('equipeExt');
     }/**
      * {@inheritdoc}
      */

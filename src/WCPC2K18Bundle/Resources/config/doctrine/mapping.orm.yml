@@ -58,24 +58,15 @@ WCPC2K18Bundle\Entity\Prediction:
             generator: { strategy: AUTO }
     fields:
         double:
+            column: bonus
             type: boolean
             defaults: false
         nbButTrDom:
             type: integer
-        nbButProlDom:
-             type: integer
-        nbTabDom:
-             type: integer
+            default: 0
         nbButTrExt:
              type: integer
-        nbButProlExt:
-             type: integer
-        nbTabExt:
-             type: integer
-        prolongation:
-            type: boolean
-        tirAuBut:
-            type: boolean
+             default: 0
     manyToOne:
         rencontre:
             targetEntity: Rencontre

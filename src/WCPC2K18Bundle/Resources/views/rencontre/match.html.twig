@@ -18,7 +18,9 @@
                         <td> {{ rencontre.date|date("Y-m-d H:i:s") }} <br/> Journée : {{ rencontre.journee }} </td>
                         <td> {{ rencontre.equipeDom.nom }}  -
                          {{ rencontre.equipeExt.nom }} <br/> Groupe {{ rencontre.equipeDom.groupe }} </td>
-                        <td> <a class="btn btn-primary" href="#" role="button">Pronostic</a> </td>                                          
+
+                        <td> <a class="btn btn-primary" href={{ url('pronostic', { 'referenceRencontre' : rencontre.id }  ) }} role="button">Pronostic</a> </td>   
+
                     </tr>    
                 {% endfor %}
             </tbody> 

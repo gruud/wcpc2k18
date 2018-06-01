@@ -24,8 +24,8 @@ calendrier:
     
 pronostic:
     path: /pronostic/{referenceRencontre}
-    defaults: { _controller: WCPC2K18Bundle:Prediction:add }
+    defaults: { _controller: WCPC2K18Bundle:Prediction:pronostic }
     
 listeprediction:
-    path: /test/{id}
-    defaults: { _controller: WCPC2K18Bundle:Prediction:userprediction }
+    path: /test/{user}/{rencontre}
+    defaults: { _controller: WCPC2K18Bundle:Prediction:userpredictionValide }

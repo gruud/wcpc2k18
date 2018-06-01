@@ -14,27 +14,17 @@ namespace WCPC2K18Bundle\Entity;
 class Prediction {
     //put your code here
     private $id;
-    private $score;
     private $rencontre;
     private $user;
     private $double;
     private $nbButTrDom;
-    private $nbButProlDom;
-    private $nbTabDom;
     private $nbButTrExt;
-    private $nbButProlExt;
-    private $nbTabExt;
-    private $prolongation;
-    private $tirAuBut;
+
 
     
     
     function getId() {
         return $this->id;
-    }
-
-    function getScore() {
-        return $this->score;
     }
 
     function getRencontre() {
@@ -47,10 +37,6 @@ class Prediction {
 
     function setId($id) {
         $this->id = $id;
-    }
-
-    function setScore($score) {
-        $this->score = $score;
     }
 
     function setRencontre($rencontre) {
@@ -68,6 +54,72 @@ class Prediction {
     function setDouble($double) {
         $this->double = $double;
     }
+    
+    
+    function getNbButTrDom() {
+        return $this->nbButTrDom;
+    }
+
+    function getNbButProlDom() {
+        return $this->nbButProlDom;
+    }
+
+    function getNbTabDom() {
+        return $this->nbTabDom;
+    }
+
+    function getNbButTrExt() {
+        return $this->nbButTrExt;
+    }
+
+    function getNbButProlExt() {
+        return $this->nbButProlExt;
+    }
+
+    function getNbTabExt() {
+        return $this->nbTabExt;
+    }
+
+    function getProlongation() {
+        return $this->prolongation;
+    }
+
+    function getTirAuBut() {
+        return $this->tirAuBut;
+    }
+
+    function setNbButTrDom($nbButTrDom) {
+        $this->nbButTrDom = $nbButTrDom;
+    }
+
+    function setNbButProlDom($nbButProlDom) {
+        $this->nbButProlDom = $nbButProlDom;
+    }
+
+    function setNbTabDom($nbTabDom) {
+        $this->nbTabDom = $nbTabDom;
+    }
+
+    function setNbButTrExt($nbButTrExt) {
+        $this->nbButTrExt = $nbButTrExt;
+    }
+
+    function setNbButProlExt($nbButProlExt) {
+        $this->nbButProlExt = $nbButProlExt;
+    }
+
+    function setNbTabExt($nbTabExt) {
+        $this->nbTabExt = $nbTabExt;
+    }
+
+    function setProlongation($prolongation) {
+        $this->prolongation = $prolongation;
+    }
+
+    function setTirAuBut($tirAuBut) {
+        $this->tirAuBut = $tirAuBut;
+    }
+
 
 
     

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Equipe</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ equipe.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ equipe.nom }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ equipe.pays }}</td>
+            </tr>
+            <tr>
+                <th>Entraineur</th>
+                <td>{{ equipe.entraineur }}</td>
+            </tr>
+            <tr>
+                <th>Groupe</th>
+                <td>{{ equipe.groupe }}</td>
+            </tr>
+            <tr>
+                <th>Flag20</th>
+                <td><img src="{{ asset( 'bundles/wcpc2k18/images/flags/20/' ~  equipe.Flag20 ) }}" alt="" /> </td>
+            </tr>
+            <tr>
+                <th>Flag32</th>
+                <td><img src="{{ asset( 'bundles/wcpc2k18/images/flags/32/' ~  equipe.Flag32 ) }}" alt="" /> </td>
+            </tr>
+            <tr>
+                <th>Flag64</th>
+               <td><img src="{{ asset( 'bundles/wcpc2k18/images/flags/64/' ~  equipe.Flag64 ) }}" alt="" /> </td>
+            </tr>
+            <tr>
+                <th>Flagsvg</th>
+                <td><img src="{{ asset( 'bundles/wcpc2k18/images/flags/svg/' ~  equipe.Flagsvg ) }}" alt="" /> </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('equipe_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('equipe_edit', { 'id': equipe.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

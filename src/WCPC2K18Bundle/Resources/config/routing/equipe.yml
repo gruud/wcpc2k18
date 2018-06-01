@@ -1,0 +1,24 @@
+equipe_index:
+    path:     /
+    defaults: { _controller: "WCPC2K18Bundle:Equipe:index" }
+    methods:  GET
+
+equipe_show:
+    path:     /{id}/show
+    defaults: { _controller: "WCPC2K18Bundle:Equipe:show" }
+    methods:  GET
+
+equipe_new:
+    path:     /new
+    defaults: { _controller: "WCPC2K18Bundle:Equipe:new" }
+    methods:  [GET, POST]
+
+equipe_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WCPC2K18Bundle:Equipe:edit" }
+    methods:  [GET, POST]
+
+equipe_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WCPC2K18Bundle:Equipe:delete" }
+    methods:  DELETE

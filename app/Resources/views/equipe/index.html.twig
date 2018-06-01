@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Equipes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Pays</th>
+                <th>Entraineur</th>
+                <th>Groupe</th>
+                <th>Flag20</th>
+                <th>Flag32</th>
+                <th>Flag64</th>
+                <th>Flagsvg</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for equipe in equipes %}
+            <tr>
+                <td><a href="{{ path('equipe_show', { 'id': equipe.id }) }}">{{ equipe.id }}</a></td>
+                <td>{{ equipe.nom }}</td>
+                <td>{{ equipe.pays }}</td>
+                <td>{{ equipe.entraineur }}</td>
+                <td>{{ equipe.groupe }}</td>
+                <td>{{ equipe.flag20 }}</td>
+                <td>{{ equipe.flag32 }}</td>
+                <td>{{ equipe.flag64 }}</td>
+                <td>{{ equipe.flagsvg }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('equipe_show', { 'id': equipe.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('equipe_edit', { 'id': equipe.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('equipe_new') }}">Create a new equipe</a>
+        </li>
+    </ul>
+{% endblock %}

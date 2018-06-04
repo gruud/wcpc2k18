@@ -13,6 +13,8 @@ use WCPC2K18Bundle\Entity\Rencontre;
 use WCPC2K18Bundle\Entity\Equipe;
 use Symfony\Component\HttpFoundation\Request;
 
+
+
 /**
  * Description of PredictionController
  *
@@ -50,8 +52,10 @@ class PredictionController extends Controller {
 
         /* user 0 pour le test, cette bvaleur sera initialiser avec le user quand le bundle sera installé */
 
-        $userRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:User');
-        $user = $userRepository->find(2);
+        //$userRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:User');
+        //$user = $userRepository->find(2);
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        
         /* recuperation des infos de la rencontre */
         $rencontreRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Rencontre');
         $rencontre = $rencontreRepository->find($referenceRencontre);

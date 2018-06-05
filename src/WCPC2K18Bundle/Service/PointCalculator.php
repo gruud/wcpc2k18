@@ -52,6 +52,8 @@ class PointCalculator {
          $compteur = $compteur*2;
      }
      
+     return $compteur;
+     
     }
     
    

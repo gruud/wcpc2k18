@@ -183,6 +183,9 @@ WCPC2K18Bundle\Entity\User:
             type: string
             length: 255
             nullable: true
+        points:
+            type: integer
+            nullable: true
     oneToMany:
         predictions:
             targetEntity: Prediction

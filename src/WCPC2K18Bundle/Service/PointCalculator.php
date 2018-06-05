@@ -20,6 +20,11 @@ use WCPC2K18Bundle\Entity\Rencontre;
 
 class PointCalculator {
     //put your code here
+    
+    /**
+     * Calcul le nombre de point pour un prediction
+     * @param Prediction $prediction
+     */
     public function rencontreCalculator(Prediction $prediction ){
      
      $compteur = 0;

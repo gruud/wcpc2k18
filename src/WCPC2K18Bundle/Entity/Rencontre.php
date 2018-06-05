@@ -28,6 +28,7 @@ class Rencontre {
     private $nbTabExt;
     private $prolongation;
     private $tirAuBut;
+    
 
     
     

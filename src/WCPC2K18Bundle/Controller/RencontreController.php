@@ -127,14 +127,14 @@ class RencontreController extends Controller {
                 
                 // mise à jour du nombre de points du joueur en base
                 
-                $userRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:User');
-                $user = $userRepository->find($prediction->getUser()->getId());
+                //$userRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:User');
+                //$user = $userRepository->find($prediction->getUser()->getId());
                 $userCourant = $this->getDoctrine()->getManager();
                 $userCourant->persist($user);
 
                 $userCourant->flush();
             }
-echo $nbpoints;
+
             /* selection des pronostics concernés par cette rencontre */
         }
         

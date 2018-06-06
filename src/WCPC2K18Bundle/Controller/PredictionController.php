@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
  * @author jean-yves
  */
 class PredictionController extends Controller {
-    /* ajout d'un prediction le parametre est le numéro de rencontre */
+    /* test si un user a deja fait un pronostic */
 
     /**
      * 
@@ -36,6 +36,8 @@ class PredictionController extends Controller {
 
     /**
      * 
+     * test si la date de la encontre est dépassée
+     * 
      * @param type $rencontre
      * @return type
      */
@@ -46,18 +48,24 @@ class PredictionController extends Controller {
         return ( $date1 < $listeRencontre[0]->getdate()->sub(new \DateInterval('PT1H')) );
     }
 
+    /**
+     * 
+     * @param Request $request
+     * @param type $referenceRencontre
+     * @return type
+     */
+    
+    
+    
     function pronosticAction(Request $request, $referenceRencontre) {
 
-        /* user 0 pour le test, cette bvaleur sera initialiser avec le user quand le bundle sera installé */
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
-        $userRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:User');
-        $user = $userRepository->find(2);
         /* recuperation des infos de la rencontre */
         $rencontreRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Rencontre');
         $rencontre = $rencontreRepository->find($referenceRencontre);
         $prediction = new \WCPC2K18Bundle\Entity\Prediction;
-
-        /* creation d'une valeur test */
+      
         if ($this->userPredictionExist($user, $rencontre)) {
 
             $predictionRepository = $this->getDoctrine()->getManager()->getRepository('WCPC2K18Bundle:Prediction');
@@ -73,9 +81,9 @@ class PredictionController extends Controller {
 
                 $predictionCour->flush();
             }
-            
-            
-            
+
+
+
             //$this->rencontrePerime($rencontre);
             //return $this->render("WCPC2K18Bundle:prediction:userPrediction.html.twig", array('listePredictions' => $listePredictions));
             return $this->render("WCPC2K18Bundle:prediction:addPrediction.html.twig", array('form' => $form->createView(), 'rencontre' => $rencontre, 'user' => $user));

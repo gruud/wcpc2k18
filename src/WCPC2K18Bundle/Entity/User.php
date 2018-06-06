@@ -22,6 +22,7 @@ class User extends BaseUser {
    protected $prenom;
    protected $service;
    protected $predictions;
+   protected $points;
    
    function getId() {
        return $this->id;
@@ -61,6 +62,14 @@ class User extends BaseUser {
 
    function setPredictions($predictions) {
        $this->predictions = $predictions;
+   }
+
+   function getPoints() {
+       return $this->points;
+   }
+
+   function setPoints($points) {
+       $this->points = $points;
    }
 
 

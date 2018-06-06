@@ -28,7 +28,8 @@ class Rencontre {
     private $nbTabExt;
     private $prolongation;
     private $tirAuBut;
-    private $rencontre;
+    
+
     
     
     function getId() {
@@ -164,10 +165,8 @@ class Rencontre {
         $this->tirAuBut = $tirAuBut;
     }
 
-    function setRencontre($rencontre) {
-        $this->rencontre = $rencontre;
-    }
 
+    
     
     
                 

@@ -19,6 +19,11 @@ class Equipe {
     private $rencontresDom;
     private $rencontresExt;
     private $groupe;
+    private $flag20;
+    private $flag32;
+    private $flag64;
+    private $flagsvg;
+    
     
     
     function getId() {
@@ -75,6 +80,38 @@ class Equipe {
 
     function setGroupe($groupe) {
         $this->groupe = $groupe;
+    }
+
+    function getFlag20() {
+        return $this->flag20;
+    }
+
+    function getFlag32() {
+        return $this->flag32;
+    }
+
+    function getFlag64() {
+        return $this->flag64;
+    }
+
+    function getFlagsvg() {
+        return $this->flagsvg;
+    }
+
+    function setFlag20($flag20) {
+        $this->flag20 = $flag20;
+    }
+
+    function setFlag32($flag32) {
+        $this->flag32 = $flag32;
+    }
+
+    function setFlag64($flag64) {
+        $this->flag64 = $flag64;
+    }
+
+    function setFlagsvg($flagsvg) {
+        $this->flagsvg = $flagsvg;
     }
 
 

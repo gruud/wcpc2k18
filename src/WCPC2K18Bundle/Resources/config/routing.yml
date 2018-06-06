@@ -26,6 +26,20 @@ pronostic:
     path: /pronostic/{referenceRencontre}
     defaults: { _controller: WCPC2K18Bundle:Prediction:pronostic }
     
-listeprediction:
-    path: /test/{user}/{rencontre}
-    defaults: { _controller: WCPC2K18Bundle:Prediction:userpredictionValide }
+#listeprediction:
+   # path: /test/{user}/{rencontre}
+    #defaults: { _controller: WCPC2K18Bundle:Prediction:userpredictionValide }
+
+majscore:
+    path: /maj/{referenceRencontre}
+    defaults: { _controller: WCPC2K18Bundle:Rencontre:majscore }
+    
+    
+wcpc2_k18_equipe:
+    resource: "@WCPC2K18Bundle/Resources/config/routing/equipe.yml"
+    prefix:   /equipe
+
+wcpc2_k18_user:
+    resource: "@WCPC2K18Bundle/Resources/config/routing/user.yml"
+    prefix:   /user
+

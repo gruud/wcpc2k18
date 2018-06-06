@@ -40,6 +40,18 @@ WCPC2K18Bundle\Entity\Equipe:
         groupe:
             type: string
             lenght: 255
+        flag20:
+            type: string
+            lenght: 255
+        flag32:
+            type: string
+            lenght: 255
+        flag64:
+            type: string
+            lenght: 255
+        flagsvg:
+            type: string
+            lenght: 255
     oneToMany:
         rencontresDom:
             targetEntity: Rencontre
@@ -170,6 +182,9 @@ WCPC2K18Bundle\Entity\User:
         service:
             type: string
             length: 255
+            nullable: true
+        points:
+            type: integer
             nullable: true
     oneToMany:
         predictions:

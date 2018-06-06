@@ -13,9 +13,23 @@ class RencontreType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')
-                ->add('lieu')
-                ->add('journee')
+        $builder->add('date', 'datetime')
+                ->add('lieu', 'text')
+                ->add('equipeDom',
+                      'entity',
+                       array ('class'=> 'WCPC2K18Bundle\Entity\Equipe',
+                      'property' => 'nom',
+                       'label' => 'Domicile',
+                       'multiple' => false,
+                       'required' => true))
+                ->add('equipeExt',
+                      'entity',
+                       array ('class'=> 'WCPC2K18Bundle\Entity\Equipe',
+                      'property' => 'nom',
+                       'label' => 'Visiteur',
+                      'multiple' => false,
+                       'required' => true))
+                ->add('journee', 'text')
                 ->add('nbButTrDom')
                 ->add('nbButProlDom')
                 ->add('nbTabDom')
@@ -24,10 +38,12 @@ class RencontreType extends AbstractType
                 ->add('nbTabExt')
                 ->add('prolongation')
                 ->add('tirAuBut')
-                ->add('competition')
-                ->add('equipeDom')
-                ->add('equipeExt');
-    }/**
+                         
+                ->add('save', 'submit');
+    }
+    
+    
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

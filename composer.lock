@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "877a8dcc92595994e553020f4220f275",
-    "content-hash": "87061eb7e30d6fd1468294aa3e93adb0",
+    "hash": "964dc0c6acf3638a36ae40715e9383c6",
+    "content-hash": "6c4c65ace9a993aac463e2b9e3adb733",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1399,6 +1399,28 @@
                 "mailer"
             ],
             "time": "2018-01-23 07:37:21"
+        },
+        {
+            "name": "symfony/apache-pack",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/apache-pack.git",
+                "reference": "3aa5818d73ad2551281fc58a75afd9ca82622e6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/apache-pack/zipball/3aa5818d73ad2551281fc58a75afd9ca82622e6c",
+                "reference": "3aa5818d73ad2551281fc58a75afd9ca82622e6c",
+                "shasum": ""
+            },
+            "type": "symfony-pack",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A pack for Apache support in Symfony",
+            "time": "2017-12-12 01:46:35"
         },
         {
             "name": "symfony/monolog-bundle",

@@ -1,0 +1,24 @@
+user_index:
+    path:     /
+    defaults: { _controller: "WCPC2K18Bundle:User:index" }
+    methods:  GET
+
+user_show:
+    path:     /{id}/show
+    defaults: { _controller: "WCPC2K18Bundle:User:show" }
+    methods:  GET
+
+user_new:
+    path:     /new
+    defaults: { _controller: "WCPC2K18Bundle:User:new" }
+    methods:  [GET, POST]
+
+user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WCPC2K18Bundle:User:edit" }
+    methods:  [GET, POST]
+
+user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WCPC2K18Bundle:User:delete" }
+    methods:  DELETE

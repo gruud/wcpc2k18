@@ -19,6 +19,8 @@ class PredictionType extends AbstractType {
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
+        
+               
         $builder->add('double',CheckboxType::class ,array('required' => false))
                 ->add('nbButTrDom',NumberType::class)
                 ->add('nbButTrExt',NumberType::class)

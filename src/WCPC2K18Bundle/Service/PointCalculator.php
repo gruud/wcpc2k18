@@ -20,7 +20,7 @@ use WCPC2K18Bundle\Entity\Rencontre;
 
 class PointCalculator {
     //put your code here
-    
+    use \WCPC2K18Bundle\Entity\User;
     /**
      * Calcul le nombre de point pour un prediction
      * @param Prediction $prediction
@@ -39,19 +39,16 @@ class PointCalculator {
      
      if ($vainqueurDom || $vainqueurExt)
      {
-          echo "vainqueur";
          $compteur = 3;
      }
          
       
      if ((($butDom - $butExt) == ($prediction->getNbButTrDom()- $prediction->getNbButTrExt())) || (($butExt - $butDom) == ($prediction->getNbButTrExt()- $prediction->getNbButTrDom())))
      {
-         echo "difference de but";
          $compteur = 4;
      }
      
      if($butDom == $prediction->getNbButTrDom() and $butExt == $prediction->getNbButTrExt() ){
-          echo "la totale";
          $compteur = 5;
                         
      }
@@ -62,6 +59,22 @@ class PointCalculator {
      
      return $compteur;
      
+    }
+    
+    /**
+     * verifie si le joureu a deja utitlise son joker pour un journée
+     * @param type $journee
+     * @param \WCPC2K18Bundle\Entity\User $user
+     */
+    public function alreadyDouble($journee, User $user){
+        
+        
+        $manager = $this->getDoctrine()->getManager();
+
+        $pronosticRepository = $manager->getRepository("WCPC2K18Bundle:Rencontre")->findby(array('user' => $user,'journee' => $journee,'double '=> true));
+        
+        return count($pronosticRepository);
+        
     }
     
    
